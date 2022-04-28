@@ -1,0 +1,19 @@
+[project]
+name = "nonebot-plugin-bilibilicover"
+version = "0.1.0"
+description = "A plugin to get the bilibili video cover for NoneBot2"
+authors = [
+    {name = "Akirami", email = "Akiramiaya@outlook.com"},
+]
+license-expression = "MIT"
+dependencies = ["nonebot2>=2.0.0b2"]
+requires-python = ">=3.8"
+readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/A-kirami/nonebot-plugin-bilibilicover"
+Repository = "https://github.com/A-kirami/nonebot-plugin-bilibilicover"
+
+[build-system]
+requires = ["pdm-pep517>=0.12.0"]
+build-backend = "pdm.pep517.api"
