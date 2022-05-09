@@ -5,15 +5,16 @@ from nonebot import on_startswith
 from nonebot.adapters.onebot.v11 import GroupMessageEvent, MessageSegment
 from nonebot.matcher import Matcher
 
-
-@on_startswith(
+bilibili_cover_matcher = on_startswith(
     (
         "提取封面",
         "B站封面",
         "bilibili封面",
         "B站封面提取",
     )
-).handle()
+)
+
+@bilibili_cover_matcher.handle()
 async def bilibili_cover(event: GroupMessageEvent, matcher: Matcher):
     msg = event.message.extract_plain_text()
     params = {}
