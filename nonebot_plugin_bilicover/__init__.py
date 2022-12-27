@@ -14,6 +14,7 @@ bilibili_cover_matcher = on_startswith(
     )
 )
 
+
 @bilibili_cover_matcher.handle()
 async def bilibili_cover(event: GroupMessageEvent, matcher: Matcher):
     msg = event.message.extract_plain_text()
@@ -32,9 +33,9 @@ async def bilibili_cover(event: GroupMessageEvent, matcher: Matcher):
     }
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=headers, params=params)
-    if response.is_success:
+        if response.is_error:
+            await matcher.finish("该视频不存在")
         content = response.json()
-        cover_url = content.get("data").get("pic")
-        await matcher.finish(MessageSegment.image(cover_url))
-    else:
-        await matcher.finish("该视频不存在")
+        cover_url = content.get["data"]["pic"]
+        image = await client.get(cover_url, headers=headers)
+        await matcher.finish(MessageSegment.image(image.content))
