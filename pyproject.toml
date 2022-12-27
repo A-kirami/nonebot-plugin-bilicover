@@ -1,6 +1,6 @@
 [project]
 name = "nonebot-plugin-bilicover"
-version = "0.2.0"
+version = "0.2.1"
 description = "A plugin to get the bilibili video cover for NoneBot2"
 authors = [
     {name = "Akirami", email = "Akiramiaya@outlook.com"},
