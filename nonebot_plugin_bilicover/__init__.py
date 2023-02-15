@@ -36,6 +36,6 @@ async def bilibili_cover(event: GroupMessageEvent, matcher: Matcher):
         if response.is_error:
             await matcher.finish("该视频不存在")
         content = response.json()
-        cover_url = content.get["data"]["pic"]
+        cover_url = content["data"]["pic"]
         image = await client.get(cover_url, headers=headers)
         await matcher.finish(MessageSegment.image(image.content))
